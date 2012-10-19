@@ -1,0 +1,737 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE taglib
+  PUBLIC "-//Sun Microsystems, Inc.//DTD JSP Tag Library 1.2//EN"
+  "http://java.sun.com/dtd/web-jsptaglibrary_1_2.dtd">
+<taglib>
+	<tlib-version>1.1</tlib-version>
+	<jsp-version>1.2</jsp-version>	
+	<short-name>datatable</short-name>	
+	<uri>http://www.dhcc.com.cn/jsp/ui/datatable</uri>
+	<display-name>DataTable</display-name>
+	<description>Data Table library 1.0</description>
+	<!-- 数据表格标签 -->
+	<tag>
+		<name>grid</name>
+		<tag-class>com.springside.zsword.modules.web.taglib.ui.DataGridTag</tag-class>
+		<body-content>JSP</body-content>
+	    <description><![CDATA[Render data grid UI.]]></description>		
+		<attribute>
+			<name>debug</name>
+			<required>false</required>
+			<rtexprvalue>false</rtexprvalue>
+			<type>boolean</type>
+			<description>debug tag object.default 'false'</description>			
+		</attribute>
+		<attribute>
+			<name>gridClass</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+        	<description>data grid style class.</description>					
+		</attribute>
+		<attribute>
+			<name>gridWidth</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description>data grid width. default '90%'.</description>
+		</attribute>
+		<attribute>
+			<name>titleTempl</name>
+			<required>false</required>
+			<rtexprvalue>false</rtexprvalue>
+        	<description>
+        	<![CDATA[
+        		title content template HTML string.
+        		example:
+        		<div>数据表格</div>.
+        		out:
+        		<div>数据表格</div>        		
+        	]]>
+        	</description>					
+		</attribute>
+		<attribute>
+			<name>pageName</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+        	<description>
+        	page data bean name in request attributes.default 'page'.
+        	</description>					
+		</attribute>
+		<attribute>
+			<name>searchFormId</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description>
+			search form element id attribute.default 'searchForm'.
+			</description>			
+		</attribute>		
+		<attribute>
+			<name>goFn</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description>
+			go page JavaScript function name.default 'goPage'.
+			function=goPage(pageNo).
+			</description>			
+		</attribute>
+		<attribute>
+			<name>gotoFn</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description>
+			goto page JavaScript function name.default 'gotoPage'.
+			function=gotoPage(pageNo, nowPage, totalPages, [event]);
+			</description>			
+		</attribute>
+		<attribute>
+			<name>setSizeFn</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description>
+			set page size JavaScript function name.default 'setPageSize'.
+			function=setPageSize(size).
+			</description>			
+		</attribute>
+		<attribute>
+			<name>pageNoLength</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<type>int</type>
+			<description>
+			show pager number array length.default 5.
+			</description>			
+		</attribute>
+		<attribute>
+			<name>useDefaultTempl</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<type>boolean</type>
+			<description>
+			whether use default pager ui templete.default false.
+			</description>			
+		</attribute>				
+		<attribute>
+			<name>showFirst</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<type>boolean</type>
+			<description>
+			whether show [first] element.default true.
+			</description>			
+		</attribute>
+		<attribute>
+			<name>showPrevious</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<type>boolean</type>
+			<description>
+			whether show [previous] element.default true.
+			</description>			
+		</attribute>						
+		<attribute>
+			<name>showNumberList</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<type>boolean</type>
+			<description>
+			whether show page number array.default false.
+			</description>			
+		</attribute>
+		<attribute>
+			<name>showNext</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<type>boolean</type>
+			<description>
+			whether show [next] element.default true.
+			</description>			
+		</attribute>
+		<attribute>
+			<name>showLast</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<type>boolean</type>
+			<description>
+			whether show [last] element.default true.
+			</description>			
+		</attribute>		
+		<attribute>
+			<name>showGoto</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<type>boolean</type>
+			<description>
+			whether show goto page element.default true.
+			</description>			
+		</attribute>
+		<attribute>
+			<name>showRefresh</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<type>boolean</type>
+			<description>
+			whether show [refresh] element.default false.
+			</description>			
+		</attribute>
+		<attribute>
+			<name>showSizeSel</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<type>boolean</type>
+			<description>
+			whether show set page size select element.default true.
+			</description>			
+		</attribute>
+		<attribute>
+			<name>showPageSel</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<type>boolean</type>
+			<description>
+			whether show page no select element.default true.
+			</description>			
+		</attribute>
+		<attribute>
+			<name>firstTempl</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description>
+			[first] ui template.
+			</description>						
+		</attribute>
+		<attribute>
+			<name>previousTempl</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description>
+			[previous] ui template.
+			</description>						
+		</attribute>		
+		<attribute>
+			<name>nextTempl</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description>
+			[next] ui template.
+			</description>						
+		</attribute>
+		<attribute>
+			<name>lastTempl</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description>
+			[last] ui template.
+			</description>						
+		</attribute>
+		<attribute>
+			<name>sizeSelTempl</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description>
+			page size select ui template.
+			</description>						
+		</attribute>
+		<attribute>
+			<name>pageSelTempl</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description>
+			page size select ui template.
+			</description>						
+		</attribute>
+		<attribute>
+			<name>pageInTempl</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description>
+			page no input ui template.
+			</description>						
+		</attribute>
+		<attribute>
+			<name>goBtnTempl</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description>
+			go page no button ui template.
+			</description>						
+		</attribute>
+		<attribute>
+			<name>numberTempl</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description>
+			page number ui template.
+			</description>						
+		</attribute>
+		<attribute>
+			<name>numberCurTempl</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description>
+			current page number ui template.
+			</description>						
+		</attribute>
+		<attribute>
+			<name>numberListTempl</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description>
+			page number list ui template.
+			</description>						
+		</attribute>						
+		<attribute>
+			<name>noDataInfoTempl</name>
+			<required>false</required>
+			<rtexprvalue>false</rtexprvalue>
+			<description>
+			no page data message ui template.
+			</description>						
+		</attribute>
+		<attribute>
+			<name>nodataMsg</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>			
+			<description>
+			when there is no page data, what message will to show.
+			</description>						
+		</attribute>
+		<attribute>
+			<name>autoMin</name>
+			<required>false</required>
+			<rtexprvalue>false</rtexprvalue>
+			<type>boolean</type>
+			<description>
+			whether auto show least element.
+			</description>						
+		</attribute>				
+	</tag>
+	<!-- 数据表格分页对象标签 -->
+	<tag>	    
+		<name>pager</name>
+		<tag-class>com.springside.zsword.modules.web.taglib.ui.DataTablePager</tag-class>
+		<body-content>JSP</body-content>
+		<description><![CDATA[Render data table pager UI.]]></description>
+		<attribute>
+			<name>debug</name>
+			<required>false</required>
+			<rtexprvalue>false</rtexprvalue>
+			<type>boolean</type>			
+			<description>debug tag object.default 'false'</description>
+		</attribute>
+		<attribute>
+			<name>tagBody</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+        	<description>
+        	<![CDATA[
+        		body content template HTML string.default using table.
+        		example:
+        		<div><span>_BACK_</span> | <span>_NUMBER_</span> | <span>_FORWARD_</span> | <span>_GOTO_</span> | <span>_REFRESH_</span> | <span>_SIZE_</span> | <span>_INFO_</span></div>.        		
+        		out:
+        		<div><span>.first. .previous.</span> | <span>.2 3 4. ...</span> | <span>.next. .last.</span> | <span>.goto page.</span> | <span>.refresh.</span> | <span>.set page size.</span> | <span>.page info.(total ...)</span></div>.        		
+        	]]>
+        	</description>					
+		</attribute>
+		<attribute>
+			<name>pageName</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+        	<description>
+        	page data bean name in request attributes.default 'page'.
+        	</description>					
+		</attribute>
+		<attribute>
+			<name>searchFormId</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description>
+			search form element id attribute.default 'searchForm'.
+			</description>			
+		</attribute>		
+		<attribute>
+			<name>goFn</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description>
+			go page JavaScript function name.default 'goPage'.
+			function=goPage(pageNo).
+			</description>			
+		</attribute>
+		<attribute>
+			<name>gotoFn</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description>
+			goto page JavaScript function name.default 'gotoPage'.
+			function=gotoPage(pageNo, nowPage, totalPages, [event]);
+			</description>			
+		</attribute>
+		<attribute>
+			<name>setSizeFn</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description>
+			set page size JavaScript function name.default 'setPageSize'.
+			function=setPageSize(size).
+			</description>			
+		</attribute>
+		<attribute>
+			<name>pageNoLength</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<type>int</type>
+			<description>
+			show pager number array length.default 5.
+			</description>			
+		</attribute>
+		<attribute>
+			<name>useDefaultTempl</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<type>boolean</type>
+			<description>
+			whether use default pager ui templete.default false.
+			</description>			
+		</attribute>				
+		<attribute>
+			<name>showFirst</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<type>boolean</type>
+			<description>
+			whether show [first] element.default true.
+			</description>			
+		</attribute>
+		<attribute>
+			<name>showPrevious</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<type>boolean</type>
+			<description>
+			whether show [previous] element.default true.
+			</description>			
+		</attribute>						
+		<attribute>
+			<name>showNumberList</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<type>boolean</type>
+			<description>
+			whether show page number array.default false.
+			</description>			
+		</attribute>
+		<attribute>
+			<name>showNext</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<type>boolean</type>
+			<description>
+			whether show [next] element.default true.
+			</description>			
+		</attribute>
+		<attribute>
+			<name>showLast</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<type>boolean</type>
+			<description>
+			whether show [last] element.default true.
+			</description>			
+		</attribute>		
+		<attribute>
+			<name>showGoto</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<type>boolean</type>
+			<description>
+			whether show goto page element.default true.
+			</description>			
+		</attribute>
+		<attribute>
+			<name>showRefresh</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<type>boolean</type>
+			<description>
+			whether show [refresh] element.default false.
+			</description>			
+		</attribute>
+		<attribute>
+			<name>showSizeSel</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<type>boolean</type>
+			<description>
+			whether show set page size select element.default true.
+			</description>			
+		</attribute>
+		<attribute>
+			<name>showPageSel</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<type>boolean</type>
+			<description>
+			whether show page no select element.default true.
+			</description>			
+		</attribute>
+		<attribute>
+			<name>firstTempl</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description>
+			[first] ui template.
+			</description>						
+		</attribute>
+		<attribute>
+			<name>previousTempl</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description>
+			[previous] ui template.
+			</description>						
+		</attribute>		
+		<attribute>
+			<name>nextTempl</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description>
+			[next] ui template.
+			</description>						
+		</attribute>
+		<attribute>
+			<name>lastTempl</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description>
+			[last] ui template.
+			</description>						
+		</attribute>
+		<attribute>
+			<name>sizeSelTempl</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description>
+			page size select ui template.
+			</description>						
+		</attribute>
+		<attribute>
+			<name>pageSelTempl</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description>
+			page size select ui template.
+			</description>						
+		</attribute>
+		<attribute>
+			<name>pageInTempl</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description>
+			page no input ui template.
+			</description>						
+		</attribute>
+		<attribute>
+			<name>goBtnTempl</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description>
+			go page no button ui template.
+			</description>						
+		</attribute>
+		<attribute>
+			<name>numberTempl</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description>
+			page number ui template.
+			</description>						
+		</attribute>
+		<attribute>
+			<name>numberCurTempl</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description>
+			current page number ui template.
+			</description>						
+		</attribute>
+		<attribute>
+			<name>numberListTempl</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description>
+			page number list ui template.
+			</description>						
+		</attribute>						
+		<attribute>
+			<name>noDataInfoTempl</name>
+			<required>false</required>
+			<rtexprvalue>false</rtexprvalue>
+			<description>
+			no page data message ui template.
+			</description>						
+		</attribute>
+		<attribute>
+			<name>nodataMsg</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>			
+			<description>
+			when there is no page data, what message will to show.
+			</description>						
+		</attribute>
+		<attribute>
+			<name>autoMin</name>
+			<required>false</required>
+			<rtexprvalue>false</rtexprvalue>
+			<type>boolean</type>
+			<description>
+			whether auto show least element.
+			</description>						
+		</attribute>
+	</tag>
+	
+	<!-- 数据表格表格头标签 -->
+	<tag>
+		<name>header</name>
+		<tag-class>com.springside.zsword.modules.web.taglib.ui.DataTableHeader</tag-class>
+		<body-content>JSP</body-content>
+	    <description><![CDATA[Render data table header UI.]]></description>		
+		<attribute>
+			<name>debug</name>
+			<required>false</required>
+			<rtexprvalue>false</rtexprvalue>
+			<type>boolean</type>
+			<description>debug tag object.default 'false'</description>			
+		</attribute>
+		<attribute>
+			<name>tagBody</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+        	<description>
+        	<![CDATA[
+        		body content template HTML string.default using tr.
+        		example:
+        		<tr>_CELLS_</tr>.
+        		out:
+        		<tr><th>Label1</th><th>Label2</th></tr>        		
+        	]]>
+        	</description>					
+		</attribute>
+		<attribute>
+			<name>cellBody</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description>
+			<![CDATA[
+				cell content template HTML string.default using th.
+				example:
+				<th>_ORDER_</th>
+				out:
+				<th><a href="javascript:void(0)" onclick="orderPage(fieldName, formId)">Label1<span class="dirClass"/></a></th>				
+			]]>
+			</description>
+		</attribute>
+		<attribute>
+			<name>singleOrder</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<type>boolean</type>
+			<description>
+			whether is single order.default 'true'.
+			</description>			
+		</attribute>		
+		<attribute>
+			<name>pageName</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+        	<description>
+        	page data bean name in request attributes.default 'page'.
+        	</description>					
+		</attribute>
+		<attribute>
+			<name>searchFormId</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description>
+			search form element id attribute.default 'searchForm'.
+			</description>			
+		</attribute>		
+		<attribute>
+			<name>orderFn</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description>
+			order data page JavaScript function name.default 'orderPage'.
+			function=orderPage(pageNo).
+			</description>			
+		</attribute>
+		<attribute>
+			<name>labelValues</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description>
+			label names string.
+			example: Label1,Label2,Label3,...
+			</description>			
+		</attribute>
+		<attribute>
+			<name>fieldValues</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description>
+			field names string.'-' mean null.
+			example: id,name,-,... (match label names)
+			</description>
+		</attribute>
+		<attribute>
+			<name>orderableValues</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description>
+			whether can order using fields string.
+			example: false,true,false,... (match label names)
+			</description>			
+		</attribute>
+		<attribute>
+			<name>orderNoneStyleClass</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description>
+			not order icon style class name.default 'orderNone'.
+			</description>			
+		</attribute>
+		<attribute>
+			<name>orderAscStyleClass</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description>
+			ASC order icon style class name.default 'orderAsc'.
+			</description>			
+		</attribute>
+		<attribute>
+			<name>orderDescStyleClass</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description>
+			DESC order icon style class name.default 'orderDesc'.
+			</description>			
+		</attribute>
+		<attribute>
+			<name>cellTempl</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description>
+			cell element templet.
+			</description>			
+		</attribute>
+		<attribute>
+			<name>labelTempl</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description>
+			label element templet.
+			</description>			
+		</attribute>		
+	</tag>
+</taglib>
+
+
+
