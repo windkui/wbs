@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN"
+        "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+	<!-- 默认配置 -->
+	<!-- constant name="struts.action.excludePattern" value="" / -->
+	<constant name="struts.action.extension" value="sjson,action" />	
+	<constant name="struts.devModel" value="true" />
+	<constant name="struts.multipart.maxSize" value="10485760" />	
+	<!-- convension插件配置 -->	
+	<bean type="org.apache.struts2.convention.ActionNameBuilder" name="defaultConvention" class="org.apache.struts2.convention.DefaultActionNameBuilder"/>
+	<constant name="struts.convention.default.parent.package" value="crud-default" />
+	<constant name="struts.convention.actionNameBuilder" value="defaultConvention"/>
+	<constant name="struts.convention.package.locators.basePackage" value="com.wbs.web.struts2" />
+	<!-- constant name="struts.convention.action.name.separator" value="" />
+	<constant name="struts.convention.action.name.lowercase" value="false" / -->	
+
+	<!-- 用于CRUD Action的parent package -->
+	<package name="crud-default" extends="convention-default,jsonView-default">
+		<!-- 基于paramsPrepareParamsStack,
+			增加store interceptor保证actionMessage在redirect后不会丢失 -->
+		<interceptors>
+			<interceptor-stack name="crudStack">
+				<interceptor-ref name="store">
+					<param name="operationMode">AUTOMATIC</param>
+				</interceptor-ref>
+				<interceptor-ref name="paramsPrepareParamsStack" />
+			</interceptor-stack>
+		</interceptors>
+
+		<default-interceptor-ref name="crudStack" />
+		<global-results>
+			<result name="operationSuccess">/result_pages/operationSuccess.jsp</result>
+			<result name="login">/result_pages/login.jsp</result>
+			<result name="fileUploadException">/error_pages/fileUploadException.jsp</result>
+			<result name="dataViewException">/error_pages/dataViewException.jsp</result>
+			<result name="operationException">/error_pages/operationException.jsp</result>
+			<result name="dataAccessException">/error_pages/dataAccessException.jsp</result>
+		</global-results>		
+		<global-exception-mappings>
+			<exception-mapping result="fileUploadException" exception="org.apache.commons.fileupload.FileUploadException" />
+			<exception-mapping result="dataViewException" exception="com.springside.zsword.modules.web.exception.DataViewException" />
+		</global-exception-mappings>
+	</package>
+
+	<!-- 
+		使用Convention插件,实现约定大于配置的零配置文件风格.
+	           特殊的Result路径在Action类中使用@Result设定. 
+	-->
+</struts>

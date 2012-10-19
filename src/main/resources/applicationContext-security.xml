@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:s="http://www.springframework.org/schema/security"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+                        http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-3.0.xsd"
+	default-lazy-init="true">
+
+	<description>SpringSecurity安全配置</description>
+
+	<!-- HTTP安全配置 -->
+	<s:http auto-config="true" use-expressions="true">
+		<s:intercept-url pattern="/css/**" filters="none" />
+		<s:intercept-url pattern="/images/**" filters="none" />
+		<s:intercept-url pattern="/js/**" filters="none" />
+		<s:intercept-url pattern="/common/**" filters="none" />
+		<s:intercept-url pattern="/login*" filters="none"/>
+		
+		
+		<!-- 系统管理权限 -->	
+		<s:intercept-url pattern="/account/authority*" access="hasAnyRole('ROLE_管理权限')" />
+		<s:intercept-url pattern="/account/menu*" access="hasAnyRole('ROLE_管理菜单')" />
+		<s:intercept-url pattern="/account/role*" access="hasAnyRole('ROLE_管理角色')" />
+		<s:intercept-url pattern="/account/user*" access="hasAnyRole('ROLE_管理用户')" />
+		
+		<!-- 公共权限 -->
+		<s:intercept-url pattern="/" access="hasAnyRole('ROLE_登陆用户')" />
+		<s:intercept-url pattern="/index*" access="hasAnyRole('ROLE_登陆用户')" />
+		<s:intercept-url pattern="/main**" access="hasAnyRole('ROLE_登陆用户')" />		
+		<s:intercept-url pattern="/account/**" access="hasAnyRole('ROLE_登陆用户')" />								
+		<s:intercept-url pattern="/manager/**" access="hasAnyRole('ROLE_登陆用户')" />
+		
+		
+		<s:form-login login-page="/login.action" default-target-url="/" authentication-success-handler-ref="subSystemLoginSuccessHandler" authentication-failure-url="/login.action?error=true" always-use-default-target="true" />
+		<s:logout logout-success-url="/" />
+		
+	</s:http>
+	
+	<bean id="subSystemLoginSuccessHandler" class="com.wbs.config.springsecurity.SubSystemAuthenticationSuccessHandler">
+		<property name="defaultTargetUrl" value="/" />
+		<property name="alwaysUseDefaultTargetUrl" value="true" />
+	</bean>	
+	
+	<!-- 认证配置, 使用userDetailsService提供的用户信息 -->
+	<s:authentication-manager alias="authenticationManager">
+		<s:authentication-provider user-service-ref="userDetailsService">
+			<s:password-encoder hash="plaintext" />
+		</s:authentication-provider>
+	</s:authentication-manager>
+
+	<!-- 项目实现的用户查询服务 -->
+	<bean id="userDetailsService" class="com.wbs.config.springsecurity.UserDetailsServiceImpl" />
+	
+	
+</beans>
