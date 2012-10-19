@@ -1,0 +1,302 @@
+*{
+	font-size: 12px;
+	/*font-family:'verdana','宋体';*/
+	font-family: "arial", "helvetica", "sans-serif"; 
+}
+/* css style: */
+span, label {
+	-moz-user-select: none;
+	-khtml-user-select: none;
+	user-select: none;
+}
+body {
+  color: #192E32;
+  font: 12px "sans-serif", "Arial", "Verdana";
+}
+img {border: 0;}
+p, td, div {
+  font: 12px "sans-serif", "Arial", "Verdana";
+}
+
+th {
+  font: 12px "sans-serif", "Arial", "Verdana";
+  font-weight: bold;
+}
+
+form {
+  margin: 0px;
+  padding: 0px;
+}
+
+input, textarea, select {
+  font: 12px "courier new";
+}
+
+a:visited {
+  color: #335B64;
+  text-decoration: none;
+}
+
+a:link {
+  color: #335B64;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #EB8A3D;
+}
+
+a:active {
+  color: #EB8A3D;
+}
+
+.clear {
+  clear: both;
+  float: none;
+  font-size: 0px;
+  margin: 0;
+  padding: 0;
+  display:block;
+}
+
+.decimalList li {
+	list-style: decimal;
+	text-align: left;
+}
+
+.inlineText {
+	display:inline-block;
+	width:200px;
+	overflow:hidden;
+	white-space:nowrap;
+	text-overflow:ellipsis;
+}
+
+/** UI styles */
+.ok_type {color:#00ff00;font-weight: bolder;}
+.warning_type {color:#ffd700;font-weight: bolder;}
+.error_type {color:#ff0000;font-weight: bolder;}
+.statusOK {color:#00ff00;font-weight: bolder;}
+.statusError {color:#ff0000;font-weight: bolder;}
+.statusNotYet {color:#ffd700;font-weight: bolder;}
+
+.lightbox {
+	width: 250px;
+	background: #FFFFFF;
+	border: 1px solid #ccc;
+	line-height: 25px;
+	top: 20%;
+	left: 20%;
+}
+
+.lightbox dt {
+	text-align: center;
+}
+.mainPanel {
+	display:none;
+	margin-top: 0;
+	margin-left: 0;
+	margin-bottom: 2px;
+}
+.inputPanel {
+	display: none;
+}
+
+#listPanel {
+	overflow: auto;
+}
+.flag {
+	color:#f01020;
+}
+.message {
+	color: #0000ff;
+	font-weight: bolder;
+}
+.errorMessage {
+	color: #ff0000;
+	font-weight: bolder;
+}
+.pagerUI *{
+	vertical-align: middle;
+}
+.pagerUI a {
+	height: 28px;
+}
+.operationUI {
+	padding-bottom: 0px;
+}
+.operationUI a {
+	height: 28px;
+}
+.ui-dialog-glass {
+	background: transparent;
+}
+.middle-all * {vertical-align: middle;}
+.ui-button *{vertical-align: middle;}
+.ui-smallest-button {padding: .1em .4em;}
+.ui-widget {
+	font-size: 12px;
+	/*font-family:'verdana','宋体';*/
+	font-family: "arial", "helvetica", "sans-serif";  
+}
+.om-grid div {
+	font-size: 14px;
+	font-weight: bolder;
+}
+.om-tabs-panels .om-panel .om-panel-body {
+	padding:2px 5px 2px 5px;
+}
+.menuItem {text-align: left;}
+
+.dataGrid .dataPager {width: 100%;}
+.dataGrid .dataTable td {padding-left: 2px;padding-right: 2px;}
+.dataGrid .dataTable td, .dataGrid .dataTable th {white-space: nowrap;}
+
+/** global styles */
+button,
+input,
+select,
+textarea {
+  margin: 0;
+  font-size: 100%;
+  vertical-align: middle;
+}
+button,
+input {
+  *overflow: visible;
+  line-height: normal;
+}
+
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+  padding: 0;
+  border: 0;
+}
+
+button,
+input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+  cursor: pointer;
+  -webkit-appearance: button;
+}
+
+input[type="search"] {
+  -webkit-box-sizing: content-box;
+     -moz-box-sizing: content-box;
+          box-sizing: content-box;
+  -webkit-appearance: textfield;
+}
+
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-cancel-button {
+  -webkit-appearance: none;
+}
+
+textarea {
+  overflow: auto;
+  vertical-align: top;
+}
+select,
+textarea,
+input[type="text"],
+input[type="checkbox"],
+input[type="radio"],
+input[type="password"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="date"],
+input[type="month"],
+input[type="time"],
+input[type="week"],
+input[type="number"],
+input[type="email"],
+input[type="url"],
+input[type="search"],
+input[type="tel"],
+input[type="color"],
+.uneditable-input {
+	height: 20px;
+  display: inline-block;
+  color: #555555;
+}
+
+textarea,
+input[type="text"],
+input[type="checkbox"],
+input[type="radio"],
+input[type="password"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="date"],
+input[type="month"],
+input[type="time"],
+input[type="week"],
+input[type="number"],
+input[type="email"],
+input[type="url"],
+input[type="search"],
+input[type="tel"],
+input[type="color"],
+.uneditable-input {
+  background-color: #ffffff;
+  border: 1px solid #cccccc;
+  -webkit-border-radius: 3px;
+     -moz-border-radius: 3px;
+          border-radius: 3px;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+     -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+          box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  -webkit-transition: border linear 0.2s, box-shadow linear 0.2s;
+     -moz-transition: border linear 0.2s, box-shadow linear 0.2s;
+      -ms-transition: border linear 0.2s, box-shadow linear 0.2s;
+       -o-transition: border linear 0.2s, box-shadow linear 0.2s;
+          transition: border linear 0.2s, box-shadow linear 0.2s;
+}
+
+textarea:focus,
+input[type="text"]:focus,
+input[type="checkbox"]:focus,
+input[type="radio"]:focus,
+input[type="password"]:focus,
+input[type="datetime"]:focus,
+input[type="datetime-local"]:focus,
+input[type="date"]:focus,
+input[type="month"]:focus,
+input[type="time"]:focus,
+input[type="week"]:focus,
+input[type="number"]:focus,
+input[type="email"]:focus,
+input[type="url"]:focus,
+input[type="search"]:focus,
+input[type="tel"]:focus,
+input[type="color"]:focus,
+.uneditable-input:focus {
+  border-color: rgba(82, 168, 236, 0.8);
+  outline: 0;
+  outline: thin dotted \9;
+  /* IE6-9 */
+
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(82, 168, 236, 0.6);
+     -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(82, 168, 236, 0.6);
+          box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(82, 168, 236, 0.6);
+}
+
+input[type="radio"],
+input[type="checkbox"] {
+  /* IE7 */
+  cursor: pointer;
+}
+
+input[type="submit"],
+input[type="reset"],
+input[type="button"],
+input[type="radio"],
+input[type="checkbox"] {
+  width: auto;
+}
+
+.uneditable-textarea {
+  width: auto;
+  height: auto;
+}

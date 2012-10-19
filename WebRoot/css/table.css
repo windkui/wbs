@@ -1,0 +1,44 @@
+@CHARSET "UTF-8";
+/** table styles */
+.tableBorder {
+	border-right: #183789 1px solid; border-top: #183789 1px solid; border-left: #183789 1px solid; border-bottom: #183789 1px solid; background-color: #ffffff;
+}
+.tableBorder td {
+	padding: 2px 5px;
+}
+.tableBorder th.blue {
+  line-height: 24px;
+  background: #BBDDE5 url("../images/th_bg.gif") repeat-x;
+  white-space: nowrap;
+}
+.tableBorder a:link {
+	text-decoration: none;
+}
+th.forumRowHighlight {
+	padding-right: 3px; padding-left: 3px; background: #e4edf9; padding-bottom: 3px; padding-top: 3px;
+}
+th.blueth {
+	font-weight: bold; font-size: 12px; background-image: url("../images/bg_blue.gif"); color: white; background-color: #4455aa;
+}
+th.gray {
+	font-weight: bold; font-size: 12px; background-image: url("../images/bg_gray.gif"); color: white; background-color: #4455aa;
+}
+td.forumRowHighlight {
+	padding-right: 3px; padding-left: 3px; background: #e4edf9; padding-bottom: 3px; padding-top: 3px;
+}
+td.forumRowCenter {
+	padding-right: 3px; padding-left: 3px; background: #f1f3f5; padding-bottom: 3px; padding-top: 3px;
+	text-align: center;	
+}
+td.forumRow {
+	padding-right: 3px; padding-left: 3px; background: #f1f3f5; padding-bottom: 3px; padding-top: 3px;
+	text-align: left;
+}
+td.first-cell{
+  font-weight: bold;
+  padding-left: 10px;
+}
+td.line {
+  background: #FFF;
+  line-height: 22px;
+}
