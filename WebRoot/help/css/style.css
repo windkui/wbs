@@ -1,0 +1,26 @@
+@charset "utf-8";
+/* CSS Document */
+body{ margin:0; padding:0;}
+body{ margin:0; padding:0; font-size:12px; color:#042c52; font-family:Arial, Helvetica, sans-serif;}
+input, select , label, button{height:20px;padding:0px auto;font:12px;}
+a{color:#042c52;text-decoration:none;}
+a:link, a:visited{text-decoration:none;}
+font{font-size:12px; }
+img {border: none; padding:0; margin:0;}
+ul,li,dl,dt,dd{list-style:none; padding:0; margin:0;}
+
+
+.top{ background:url(../images/top_bg.jpg) repeat-x top; height:60px; margin:0; padding:0;}
+.top .pic{ width:858px; height:60px; background:url(../images/logo.jpg) no-repeat left;}
+.content{ background:url(../images/content.jpg) top repeat-x;/*如果不想让背景相对于浏览器固定请产出下列样式*/background-attachment:fixed; /*样式结束*/ overflow:hidden;}
+.cot_font{ margin:10px 30px;background:url(../images/content_bg.jpg) no-repeat center top;background-attachment:fixed;}
+.cot_font dl{ line-height:35px; font-size:20px; font-weight:bold; color:#205204;}
+.cot_font dt{ padding-left:20px; font-size:12px; color:#042c52; line-height:25px;}
+.cot_font dd{ padding-left:30px;font-size:12px; color:#042c52; line-height:25px;}
+.cot_font dd .suojin{padding-left:40px;font-size:12px; color:#042c52; line-height:25px;}
+.cot_font dd img{ border:2px #CCC solid; padding:2px;}
+.cot_font dd font{ display:block; line-height:25px; height:25px; text-align:center; width:529px;}
+.cot_font dd span{ color:#F00;}
+.bottom{ /*底部位置，如果不想让底部永远居于浏览器的底部，请删除下列样式*/position:fixed;left:0px;bottom:0;_position:absolute;_top:expression(document.documentElement.clientHeight + document.documentElement.scrollTop - this.offsetHeight);float:left;width:100%; border:0;  vertical-align:middle;/*样式结束*/ background:url(../images/bottom_bg.jpg) repeat-x  bottom; height:38px; text-align:center; margin:0 auto; }
+.bottom font{ background:url(../images/bottom_pic.jpg) no-repeat left; height:38px; padding:8px 10px 8px 200px;line-height:38px; color:#FFF;}
+
