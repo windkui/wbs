@@ -1,0 +1,20 @@
+label.error {
+	color: red;
+	font-weight: bold;
+	background: transparent url(images/unchecked.gif) no-repeat scroll 0 0;
+	padding-left: 18px;
+}
+label.checked {
+	background: transparent url(images/checked.gif) no-repeat scroll 0 0;
+}
+.pwdis0{background:url('images/progressImg1.png') no-repeat 0 0 #ffffff;width:138px;height:8px;border: .1em #7f7f00 solid;display:block;}
+.pwdis10{background-position:0 -7px;}
+.pwdis20{background-position:0 -14px;}
+.pwdis30{background-position:0 -21px;}
+.pwdis40{background-position:0 -28px;}
+.pwdis50{background-position:0 -35px;}
+.pwdis60{background-position:0 -42px;}
+.pwdis70{background-position:0 -49px;}
+.pwdis80{background-position:0 -56px;}
+.pwdis90{background-position:0 -63px;}
+.pwdis100{background-position:0 -70px;}

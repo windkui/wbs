@@ -1,0 +1,44 @@
+.om-helper-hidden-accessible {
+	display: none;
+}
+.om-borderlayout-region-north .om-panel-tool,.om-borderlayout-region-south .om-panel-tool {
+	right: 15px;
+}
+
+/**UI styles */
+.emailLabel {
+	background: url("images/email.png") no-repeat;
+	padding-left: 18px;
+	padding-bottom: 2px;
+}
+.editLabel {
+	background: url("images/edit.png") no-repeat;
+	padding-left: 18px;
+	padding-bottom: 2px;
+}
+.editDataLabel {
+	background: url("images/edit.png") no-repeat;
+	padding-left: 18px;
+	padding-bottom: 2px;
+}
+.deleteLabel {
+	background: url("images/delete.png") no-repeat;
+	padding-left: 18px;
+	padding-bottom: 2px;
+}
+.om-grid-editor {
+}
+.om-grid-labelfield {
+	border:0;font-weight:bolder;
+}
+.om-grid-dirty-cell {
+    background-image: url("images/dirty.gif");
+    background-position: 0 0;
+    background-repeat: no-repeat;
+}
+.om-grid-editor-btn-panel {
+	margin-left: 200px;
+	margin-top: 35px;
+	border: 1px solid;
+	position: absolute;
+}
